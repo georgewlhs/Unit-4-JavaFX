@@ -7,23 +7,17 @@
 
 public class ProductPrinter {
     public static void main(String[]args){
-        Product widget = new Product("Thing1", 10.0);
-        Product doodad = new Product("Something", 20.0);
+        Product p1 = new Product("Widget", 10.0);
+        Product p2 = new Product("Doodad", 20.0);
 
-        System.out.println(widget);
+        System.out.println(p1);
+        System.out.println(p2);
 
-        System.out.println(widget.getName());
-        System.out.println(widget.getPrice());
-        System.out.println(doodad.getName());
-        System.out.println(doodad.getPrice());
+        p1.reducePrice(15);
+        p2.reducePrice(15);
 
-        widget.reducePrice(15);
-        doodad.reducePrice(15);
-
-        System.out.println(widget.getName());
-        System.out.println(widget.getPrice());
-        System.out.println(doodad.getName());
-        System.out.println(doodad.getPrice());
+        System.out.println(p1);
+        System.out.println(p2);
 
 
     }

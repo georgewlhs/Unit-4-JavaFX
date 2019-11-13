@@ -23,6 +23,10 @@ public class Product {
     }
 
     public void reducePrice(int r){
-        price = (price * (100 - r)/100);
+        price = (price * (1 - r/100.0));
+    }
+
+    public String toString(){
+        return "The product: " + name + ", costs $" + price;
     }
 }
