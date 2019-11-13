@@ -30,22 +30,25 @@ public class BankAccount {
         this.name = name;
     }
 
-    public void deposit(String pin, double amt){
-        if (this.pin.equals(pin))
+    public String deposit(String pin, double amt){
+        if (getPin().equals(pin)) {
             balance += amt;
-        else
-            System.out.println("Invalid PIN no deposit made");
-    }
-
-    public void withdraw(String pin, double amt){
-        if (this.pin.equals(pin)) {
-            if (amt <= balance) {
-                balance -= amt;
-            } else
-                System.out.println("Insufficient funds, no withdrawl made.");
+            return "Deposit Successful\nCurrent Balance for " + getName() + ": " + "$" + getBalance();
         }
         else
-            System.out.println("Invalid PIN no withdrawl made.");
+            return "Invalid PIN no deposit made";
+    }
+
+    public String withdraw(String pin, double amt){
+        if (getPin().equals(pin)) {
+            if (amt <= balance) {
+                balance -= amt;
+                return "Withdrawl Successful\nCurrent Balance for " + getName() + ": " + "$" + getBalance();
+            } else
+                return "Insufficient funds, no withdrawl made.";
+        }
+        else
+            return "Invalid PIN no withdrawl made.";
     }
 
     public void addInterst(){
@@ -53,6 +56,6 @@ public class BankAccount {
     }
 
     public String toString(){
-        return "Name: " + name + "\nBalance: " + balance + "\nPIN: "+ pin;
+        return "Name: " + name + "\nBalance: $" + Math.round(balance * 100.0)/100.0 + "\nPIN: "+ pin;
     }
 }
